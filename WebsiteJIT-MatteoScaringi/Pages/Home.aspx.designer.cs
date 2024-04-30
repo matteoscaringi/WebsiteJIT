@@ -8,9 +8,9 @@
 //------------------------------------------------------------------------------
 
 
-namespace WebsiteJIT_MatteoScaringi
+namespace WebsiteJIT_MatteoScaringi.Pages
 {
-    public partial class WebForm1
+    public partial class Home
     {
     }
 }
