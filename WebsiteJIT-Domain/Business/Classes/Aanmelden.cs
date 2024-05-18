@@ -16,6 +16,11 @@ namespace WebsiteJIT_Domain.Business.Classes
         public String _wachtwoord { get; set; }
         public int _rol { get; set; }
 
+        //Empty constructor
+        public Aanmelden()
+        {
+        }
+
         //Constructor with ID
         public Aanmelden(int id, String naam, String telnr, String adres, String email, String wachtwoord, int rol)
         {

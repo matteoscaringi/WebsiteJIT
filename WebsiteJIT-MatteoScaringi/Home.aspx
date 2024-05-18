@@ -5,5 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <form runat="server">
+        <asp:GridView ID="werknemersgrid" runat="server"></asp:GridView>
+    </form>
 </asp:Content>
