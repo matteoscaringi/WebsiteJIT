@@ -57,22 +57,19 @@
        </asp:ContentPlaceHolder>
    </main>
    
-   <footer id="footer" class="footer fixed-bottom">
+   <footer id="footer" class="footer <%--fixed-bottom--%>">
 
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-info">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Junior IT Academy</span>
+            <img alt="logo" src="./img/JIT-Logo.png" />
           </a>
-          <p>Welkom bij de website van Junior IT Academy. In ons dashboard kan je ons boeken voor een les of meer informatie vinden op onze website</p>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4></h4>
-          <ul>
-            <li><a></a></li>
-          </ul>
+        <div class="col-lg-2 col-3">
+          <h4>Over ons</h4>
+             <p>Welkom bij de website van Junior IT Academy. In ons dashboard kan je ons boeken voor een les of meer informatie vinden op onze website</p>
         </div>
 
         <div class="col-lg-2 col-6 footer-links">

@@ -32,6 +32,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 body {
   font-family: var(--font-default);
   color: var(--color-default);
@@ -492,16 +493,16 @@ section {
     z-index: 9997;
   }
 
-  .navbar ul {
-    position: absolute;
-    inset: 0;
-    padding: 50px 0 10px 0;
-    margin: 0;
-    background: rgba(0, 131, 116, 0.9);
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-  }
+    .navbar ul {
+        position: absolute;
+        inset: 0;
+        padding: 50px 0 10px 0;
+        margin: 0;
+        background: #012548;
+        overflow-y: auto;
+        transition: 0.3s;
+        z-index: 9998;
+    }
 
   .navbar a,
   .navbar a:focus {
@@ -596,7 +597,7 @@ section {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 106, 93, 0.8);
+    background: rgba(1, 37, 72, 0.8);
     z-index: 9996;
   }
 }
@@ -2567,7 +2568,7 @@ section {
 }
 
 .footer .footer-info .logo img {
-  max-height: 40px;
+  max-height: 200px;
   margin-right: 6px;
 }
 
