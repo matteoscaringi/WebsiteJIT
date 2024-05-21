@@ -70,10 +70,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DashKlant.aspx" />
+    <Content Include="DashWerknemer.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashKlant.aspx.cs">
+      <DependentUpon>DashKlant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashKlant.aspx.designer.cs">
+      <DependentUpon>DashKlant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashWerknemer.aspx.cs">
+      <DependentUpon>DashWerknemer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashWerknemer.aspx.designer.cs">
+      <DependentUpon>DashWerknemer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
