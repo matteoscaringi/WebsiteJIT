@@ -31,6 +31,7 @@
    </head>
 
    <body>
+   <form runat="server">
         <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -39,11 +40,11 @@
       </a>
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">Over ons</a></li>
-          <li><a href="#services">Diensten</a></li>
-          
-          
+          <li><asp:LinkButton ID="homeButton" runat="server" OnClick="homeButton_Click">Home</asp:LinkButton></li>
+          <li>
+              <asp:LinkButton ID="serviceButton" runat="server" OnClick="serviceButton_Click">Diensten</asp:LinkButton></li>
+          <li>
+              <asp:LinkButton class="btn-get-started" ID="aanmeldButton" runat="server" OnClick="aanmeldButton_Click">Aanmelden</asp:LinkButton></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -75,7 +76,7 @@
         <div class="col-lg-2 col-6 footer-links">
           <h4>Onze diensten</h4>
           <ul>
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Inloggen</a></li>
             <li><a href="#">Les Boeken</a></li>
           </ul>
         </div>
@@ -114,5 +115,6 @@
 
    <!-- Template Main JS File -->
    <script src="assets/js/main.js"></script>
+   </form>
    </body>
 </html>

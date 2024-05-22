@@ -5,7 +5,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form runat="server">
         <section id="hero" class="hero">
             <div class="container position-relative">
                 <div class="row gy-5" data-aos="fade-in">
@@ -13,7 +12,7 @@
                         <h2>Welkom bij <span>Junior IT Academy</span></h2>
                         <p>De toekomst van informatica start bij ons.</p>
                         <div class="d-flex justify-content-center justify-content-lg-start">
-                            <a <%--href="#about"--%> class="btn-get-started">Start hier</a>
+                            <a class="btn-get-started">Start hier</a>
                             <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"></a>
                         </div>
                     </div>
@@ -48,10 +47,6 @@
                         </div><!--End Icon Box -->
                     </div>
                 </div>
-
             </div>
-        </div>
-    </div>
     </section>
-    </form>
 </asp:Content>

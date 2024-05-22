@@ -13,5 +13,20 @@ namespace WebsiteJIT_MatteoScaringi
         {
 
         }
+
+        protected void homeButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Home.aspx");
+        }
+
+        protected void serviceButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Services.aspx");
+        }
+
+        protected void aanmeldButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inloggen.aspx");
+        }
     }
 }
