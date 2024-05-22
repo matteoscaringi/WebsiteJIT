@@ -50,6 +50,8 @@
     <Compile Include="Business\Classes\Voorbereiding.cs" />
     <Compile Include="Business\Controller.cs" />
     <Compile Include="Persistence\Categories\PersistAanmelden.cs" />
+    <Compile Include="Persistence\Categories\PersistInschrijving.cs" />
+    <Compile Include="Persistence\Categories\PersistVoorbereiding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

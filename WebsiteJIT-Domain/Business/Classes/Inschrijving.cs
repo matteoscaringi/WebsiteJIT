@@ -14,6 +14,12 @@ namespace WebsiteJIT_Domain.Business.Classes
         public int _voorbereidingid { get; set; }
         public int _aanmeldid { get; set; }
 
+        //Empty constructor
+        public Inschrijving()
+        {
+
+        }
+
         //Constructor with ID
         public Inschrijving(int id, DateTime datum, int voorbereidingid, int aanmeldid)
         {

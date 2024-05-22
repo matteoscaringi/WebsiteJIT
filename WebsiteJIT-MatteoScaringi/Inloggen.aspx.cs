@@ -11,7 +11,31 @@ namespace WebsiteJIT_MatteoScaringi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if ((bool)Session["loggedin"])
+            {
+                RoleCheck();
+            }
+            else
+            {
+                Response.Redirect("Inloggen.aspx");
+            }
+        }
 
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoleCheck()
+        {
+            if (/*Session["role"] != null && */ (int)Session["role"] == 1)
+            {
+                Response.Redirect("DashWerknemer.aspx");
+            }
+            else if (/*Session["role"] != null && */ (int)Session["role"] == 0)
+            {
+                Response.Redirect("DashKlant.aspx");
+            }
         }
     }
 }

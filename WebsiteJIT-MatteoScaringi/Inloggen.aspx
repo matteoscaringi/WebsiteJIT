@@ -29,14 +29,14 @@
                             <div class="col-md-8">
                                 <div class="form-container">
                                     <div class="form-group mb-3">
-                                        <label for="username">Gebruikersnaam</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Gebruikersnaam">
+                                        <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername">Gebruikersnaam</asp:Label>
+                                        <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Gebruikersnaam"></asp:TextBox>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="password">Wachtwoord</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Wachtwoord">
+                                        <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword">Wachtwoord</asp:Label>
+                                        <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Wachtwoord"></asp:TextBox>
                                     </div>
-                                    <button type="submit" style="background-color: #012f5c;" class="btn btn-primary w-100">Inloggen</button>
+                                    <asp:Button ID="btnLogin" runat="server" Text="Inloggen" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click" />
                                 </div>
                             </div>
                         </div>

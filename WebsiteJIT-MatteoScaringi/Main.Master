@@ -35,7 +35,7 @@
         <header id="header" class="header d-flex align-items-center">
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="Home.aspx" class="logo d-flex align-items-center">
         <h1>Junior IT <span>Academy</span></h1>
       </a>
       <nav id="navbar" class="navbar">
@@ -44,7 +44,7 @@
           <li>
               <asp:LinkButton ID="serviceButton" runat="server" OnClick="serviceButton_Click">Diensten</asp:LinkButton></li>
           <li>
-              <asp:LinkButton class="btn-get-started" ID="aanmeldButton" runat="server" OnClick="aanmeldButton_Click">Aanmelden</asp:LinkButton></li>
+              <asp:LinkButton class="btn-get-started" ID="aanmeldButton" runat="server" OnClick="aanmeldButton_Click">Dashboard</asp:LinkButton></li>
         </ul>
       </nav><!-- .navbar -->
 

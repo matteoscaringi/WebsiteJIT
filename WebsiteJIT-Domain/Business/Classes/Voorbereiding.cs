@@ -13,6 +13,12 @@ namespace WebsiteJIT_Domain.Business.Classes
         public String _inhoud { get; set; }
         public double _duur { get; set; }
 
+        //Empty constructor
+        public Voorbereiding()
+        {
+
+        }
+
         //Constructor with ID
         public Voorbereiding(int id, int medewerkerid, String inhoud, double duur)
         {

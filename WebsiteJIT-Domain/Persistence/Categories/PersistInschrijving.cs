@@ -9,37 +9,34 @@ using WebsiteJIT_Domain.Business.Classes;
 
 namespace WebsiteJIT_Domain.Persistence.Categories
 {
-    public class PersistAanmelden
+    public class PersistInschrijving
     {
-        //Get all users from the database
-        public async Task<List<Aanmelden>> getAllGebruikers(String connectionString)
+        //Get all inschrijvingen from database. 
+        public async Task<List<Inschrijving>> getAllInschrijvingen(String connectionString)
         {
-            List<Aanmelden> gebruikers = new List<Aanmelden>();
+            List<Inschrijving> inschrijvingen = new List<Inschrijving>();
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "SELECT id, naam, telnr, adres, email, wachtwoord, rol FROM aanmelden";
+                    string query = "SELECT idInschrijving, Datum, Voorbereiding_ID, Aanmeld_ID FROM inschrijving";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (DbDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())
                         {
-                            Aanmelden gebruiker = new Aanmelden
+                            Inschrijving inschrijving = new Inschrijving
                             {
                                 _id = reader.GetInt32(0),
-                                _naam = reader.GetString(1),
-                                _telnr = reader.GetString(2),
-                                _adres = reader.GetString(3),
-                                _email = reader.GetString(4),
-                                _wachtwoord = reader.GetString(5),
-                                _rol = reader.GetInt32(6)
+                                _datum = reader.GetDateTime(1),
+                                _voorbereidingid = reader.GetInt32(2),
+                                _aanmeldid = reader.GetInt32(3)
                             };
 
-                            gebruikers.Add(gebruiker);
+                            inschrijvingen.Add(inschrijving);
                         }
                     }
                 }
@@ -49,27 +46,24 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 }
             }
 
-            return gebruikers;
+            return inschrijvingen;
         }
 
-        //Add a user to the database
-        public async Task addGebruiker(Aanmelden werknemer, String connectionString)
+        //Add a new inschrijving to the database.
+        public async Task addInschrijving(Inschrijving inschrijving, String connectionString)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "INSERT INTO aanmelden (naam, telnr, adres, email, wachtwoord, rol) VALUES (@naam, @telnr, @adres, @email, @wachtwoord, @rol)";
+                    string query = "INSERT INTO aanmelden (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@naam", werknemer._naam);
-                        cmd.Parameters.AddWithValue("@telnr", werknemer._telnr);
-                        cmd.Parameters.AddWithValue("@adres", werknemer._adres);
-                        cmd.Parameters.AddWithValue("@email", werknemer._email);
-                        cmd.Parameters.AddWithValue("@wachtwoord", werknemer._wachtwoord);
-                        cmd.Parameters.AddWithValue("@rol", werknemer._rol);
+                        cmd.Parameters.AddWithValue("@datum", inschrijving._datum);
+                        cmd.Parameters.AddWithValue("@voorbereidingid", inschrijving._voorbereidingid);
+                        cmd.Parameters.AddWithValue("@aanmeldid", inschrijving._aanmeldid);
 
                         await cmd.ExecuteNonQueryAsync();
                     }
@@ -81,15 +75,15 @@ namespace WebsiteJIT_Domain.Persistence.Categories
             }
         }
 
-        //Delete a user from the database
-        public async Task deleteGebruiker(int id, String connectionString)
+        //Delete a inschrijving from the database.
+        public async Task deleteInschrijving(int id, String connectionString)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "DELETE FROM aanmelden WHERE id = @id";
+                    string query = "DELETE FROM inschrijving WHERE id = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
