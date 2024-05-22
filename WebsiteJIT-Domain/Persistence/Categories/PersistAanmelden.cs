@@ -104,5 +104,46 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 }
             }
         }
+
+        //Get all users from the database
+        public async Task<List<Aanmelden>> getLoginGegevens(string wachtwoord, string connectionString)
+        {
+            List<Aanmelden> gegevens = new List<Aanmelden>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+                    string query = "SELECT email, wachtwoord, rol FROM aanmelden WHERE wachtwoord = @wachtwoord";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@wachtwoord", wachtwoord);
+
+                        using (DbDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            while (await reader.ReadAsync())
+                            {
+                                Aanmelden gegeven = new Aanmelden
+                                {
+                                    _email = reader.GetString(0),
+                                    _wachtwoord = reader.GetString(1),
+                                    _rol = reader.GetInt32(2)
+                                };
+
+                                gegevens.Add(gegeven);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                }
+            }
+
+            return gegevens;
+        }
     }
 }

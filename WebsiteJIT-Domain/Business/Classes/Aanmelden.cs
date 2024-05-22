@@ -33,6 +33,14 @@ namespace WebsiteJIT_Domain.Business.Classes
             _rol = rol;
         }
 
+        //Constructor for the use of logging in
+        public Aanmelden(String email, String wachtwoord, int rol)
+        {
+            _email = email;
+            _wachtwoord = wachtwoord;
+            _rol = rol;
+        }
+
         //Constructor without ID
         public Aanmelden(String naam, String telnr, String adres, String email, String wachtwoord, int rol)
         {

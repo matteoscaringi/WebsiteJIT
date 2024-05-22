@@ -42,6 +42,13 @@ namespace WebsiteJIT_Domain.Business
             await persistAanmelden.deleteGebruiker(id, _connectionString);
         }
 
+        public async Task<List<Aanmelden>> getLoginGegevens(string wachtwoord)
+        {
+            PersistAanmelden persistAanmelden = new PersistAanmelden();
+
+            return await persistAanmelden.getLoginGegevens(wachtwoord, _connectionString);
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         // All fucntions for the inschrijving class.                                                          //
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
