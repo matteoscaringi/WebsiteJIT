@@ -1959,17 +1959,17 @@ section {
 }
 
 .hero .icon-box {
-  padding: 60px 30px;
-  position: relative;
-  overflow: hidden;
-  background: #008d7d;
-  box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
-  border-radius: 8px;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  text-align: center;
+    padding: 60px 30px;
+    position: relative;
+    overflow: hidden;
+    background-color: #012f5c !important;
+    box-shadow: 0 0 29px 0 rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    text-align: center;
 }
 
 .hero .icon-box .title {
@@ -1993,13 +1993,18 @@ section {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.hero .icon-box:hover {
-  background: #009786;
-}
+    .hero .icon-box:hover {
+        background: #012f5c;
+    }
 
 .hero .icon-box:hover .title a,
 .hero .icon-box:hover .icon {
   color: #fff;
+    .hero .icon-box,
+    .hero .icon-box .title a,
+    .hero .icon-box .icon {
+      color: #012f5c;
+    }
 }
 
 /*--------------------------------------------------------------

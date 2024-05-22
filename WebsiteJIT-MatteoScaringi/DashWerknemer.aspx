@@ -3,11 +3,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div style="text-align: center;">
-        <asp:Button ID="boekingenBtn" runat="server" Text="Alle boekingen bekijken" /><br />
-        <asp:Button ID="voorbereidingBtn" runat="server" Text="Alle voorbereidingen bekijken" /><br />
-        <asp:Button ID="gebruikersBtn" runat="server" Text="Alle gebruikers bekijken" /><br />
-        <asp:Button ID="werknemersBtn" runat="server" Text="Alle werknemers bekijken" /><br />
-        <asp:Button ID="gegevensBtn" runat="server" Text="Gegevens Bekijken" /><br />
+    <div class="text-center d-flex justify-content-center align-items-center" style="height: 75vh;">
+        <form runat="server">
+            <div class="btn-group">
+                <asp:Button ID="boekingenBtn" runat="server" Text="Alle boekingen bekijken" class="btn btn-primary" /><br />
+                <asp:Button ID="voorbereidingBtn" runat="server" Text="Alle voorbereidingen bekijken" class="btn btn-primary" /><br />
+                <asp:Button ID="gebruikersBtn" runat="server" Text="Alle gebruikers bekijken" class="btn btn-primary" /><br />
+                <asp:Button ID="werknemersBtn" runat="server" Text="Alle werknemers bekijken" class="btn btn-primary" /><br />
+                <asp:Button ID="gegevensBtn" runat="server" Text="Gegevens Bekijken" class="btn btn-primary" /><br />
+            </div>
+        </form>
     </div>
 </asp:Content>
