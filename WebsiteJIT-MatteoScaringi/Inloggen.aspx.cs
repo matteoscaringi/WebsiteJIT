@@ -21,11 +21,6 @@ namespace WebsiteJIT_MatteoScaringi
 
         protected async void btnLogin_Click(object sender, EventArgs e)
         {
-            await LoginHandler();
-        }
-
-        public async Task LoginHandler()
-        {
             string gebruikersnaam = await _controller.getGebruikersnaam(txtUsername.Text);
             string wachtwoord = await _controller.getWachtwoord(txtUsername.Text);
 
@@ -35,11 +30,11 @@ namespace WebsiteJIT_MatteoScaringi
                 Session["role"] = await _controller.getRol(gebruikersnaam);
                 Session["id"] = await _controller.getId(gebruikersnaam);
 
-                if (Convert.ToBoolean(Session["role"]))
+                if (Convert.ToInt32(Session["role"]) == 1)
                 {
                     Response.Redirect("DashWerknemer.aspx");
                 }
-                else if (!Convert.ToBoolean(Session["role"]))
+                else if (Convert.ToInt32(Session["role"]) ==0)
                 {
                     Response.Redirect("DashKlant.aspx");
                 }

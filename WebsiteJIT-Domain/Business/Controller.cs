@@ -12,24 +12,21 @@ namespace WebsiteJIT_Domain.Business
     public class Controller
     {
         //Conectionstring in business layer to avoid 3 seperate vaeriables in the persistence layer.
-        private string _connectionString = @"server=localhost;user id=root;persistsecurityinfo=True;database=black_cocks);password=test123";
+        private string _connectionString = @"server=localhost;user id=root;persistsecurityinfo=True;database=black_cocks;password=test123";
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         // All fucntions for the user class.                                                                  //
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PersistAanmelden persistAanmelden = new PersistAanmelden();
 
         public async Task<List<Aanmelden>> getAllGebruikers()
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
             return await persistAanmelden.getAllGebruikers(_connectionString);
         }
 
         public async Task addGebruiker(string naam, string telnr, string adres, string email, string wachtwoord, int rol)
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
             Aanmelden gebruiker = new Aanmelden(naam, telnr, adres, email, wachtwoord, rol);
 
             await persistAanmelden.addGebruiker(gebruiker, _connectionString);
@@ -37,34 +34,27 @@ namespace WebsiteJIT_Domain.Business
 
         public async Task deleteGebruiker(int id)
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
             await persistAanmelden.deleteGebruiker(id, _connectionString);
         }
 
-        public async Task<string> getGebruikersnaam(string email)
+        public async Task<int> getRol(string email)
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
-            return await persistAanmelden.getGebruikersnaam(email, _connectionString);
+            return await persistAanmelden.getRol(email, _connectionString);
         }
 
         public async Task<string> getWachtwoord(string email)
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
             return await persistAanmelden.getWachtwoord(email, _connectionString);
         }
-        public async Task<int> getRol(string email)
-        {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
 
-            return await persistAanmelden.getRol(email, _connectionString);
+        public async Task<string> getGebruikersnaam(string email)
+        {
+            string emailvar = await persistAanmelden.getGebruikersnaam(email, _connectionString);
+
+            return emailvar;
         }
         public async Task<int> getId(string email)
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden();
-
             return await persistAanmelden.getId(email, _connectionString);
         }
 
