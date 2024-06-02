@@ -43,6 +43,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                     catch (Exception ex)
                     {
                         Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                        
                     }
                 }
 

@@ -106,33 +106,128 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         }
 
         //Get all users from the database
-        public async Task<List<Aanmelden>> getLoginGegevens(string wachtwoord, string connectionString)
+        public async Task<string> getGebruikersnaam(string gebruikersnaam, string connectionString)
         {
-            List<Aanmelden> gegevens = new List<Aanmelden>();
+            string gegevens = null;
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "SELECT email, wachtwoord, rol FROM aanmelden WHERE wachtwoord = @wachtwoord";
+                    string query = "SELECT email FROM aanmelden WHERE email = @gebruikersnaam";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@wachtwoord", wachtwoord);
+                        cmd.Parameters.AddWithValue("@gebruikersnaam", gebruikersnaam);
 
                         using (DbDataReader reader = await cmd.ExecuteReaderAsync())
                         {
-                            while (await reader.ReadAsync())
+                            if (await reader.ReadAsync())
                             {
-                                Aanmelden gegeven = new Aanmelden
-                                {
-                                    _email = reader.GetString(0),
-                                    _wachtwoord = reader.GetString(1),
-                                    _rol = reader.GetInt32(2)
-                                };
+                                gegevens = reader.GetString(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                }
+            }
 
-                                gegevens.Add(gegeven);
+            return gegevens;
+        }
+
+        //Get passowrd from the database
+        public async Task<string> getWachtwoord(string gebruikersnaam, string connectionString)
+        {
+            string gegevens = null;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+                    string query = "SELECT wachtwoord FROM aanmelden WHERE email = @gebruikersnaam";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@gebruikersnaam", gebruikersnaam);
+
+                        using (DbDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                gegevens = reader.GetString(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                }
+            }
+
+            return gegevens;
+        }
+
+        //Get role from the database
+        public async Task<int> getRol(string gebruikersnaam, string connectionString)
+        {
+            int gegevens = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+                    string query = "SELECT rol FROM aanmelden WHERE email = @gebruikersnaam";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@gebruikersnaam", gebruikersnaam);
+
+                        using (DbDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                gegevens = reader.GetInt32(0);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                }
+            }
+
+            return gegevens;
+        }
+
+        //get id from database
+        public async Task<int> getId(string gebruikersnaam, string connectionString)
+        {
+            int gegevens = 0;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    await conn.OpenAsync();
+                    string query = "SELECT id FROM aanmelden WHERE email = @gebruikersnaam";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@gebruikersnaam", gebruikersnaam);
+
+                        using (DbDataReader reader = await cmd.ExecuteReaderAsync())
+                        {
+                            if (await reader.ReadAsync())
+                            {
+                                gegevens = reader.GetInt32(0);
                             }
                         }
                     }

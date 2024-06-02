@@ -16,23 +16,7 @@ namespace WebsiteJIT_MatteoScaringi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["loggedin"] != null && (bool)Session["loggedin"])
-            {
-                RoleCheck();
-            }
-            else
-            {
-                if (!IsPostBack && Request.UrlReferrer == null)
-                {
-                    // Check if the session variable "redirected" is null or false
-                    if (Session["redirected"] == null || !(bool)Session["redirected"])
-                    {
-                        // Set the session variable "redirected" to true
-                        Session["redirected"] = true;
-                        Response.Redirect("Inloggen.aspx");
-                    }
-                }
-            }
+
         }
 
         protected async void btnLogin_Click(object sender, EventArgs e)
@@ -40,37 +24,25 @@ namespace WebsiteJIT_MatteoScaringi
             await LoginHandler();
         }
 
-        private void RoleCheck()
+        public async Task LoginHandler()
         {
-            if (/*Session["role"] != null && */ (int)Session["role"] == 1)
+            string gebruikersnaam = await _controller.getGebruikersnaam(txtUsername.Text);
+            string wachtwoord = await _controller.getWachtwoord(txtUsername.Text);
+
+
+            if (txtUsername.Text == gebruikersnaam && txtPassword.Text == wachtwoord)
             {
-                Response.Redirect("DashWerknemer.aspx");
-            }
-            else if (/*Session["role"] != null && */ (int)Session["role"] == 0)
-            {
-                Response.Redirect("DashKlant.aspx");
-            }
-        }
+                Session["role"] = await _controller.getRol(gebruikersnaam);
+                Session["id"] = await _controller.getId(gebruikersnaam);
 
-        private void LoginHandler()
-        {
-            List<Aanmelden> gegevens = new List<Aanmelden>();
-
-            Session.Clear();
-
-            gegevens = await _controller.getLoginGegevens(txtUsername.Text);
-
-            if (gegevens.Any(a => a._email == txtUsername.Text && a._wachtwoord == txtPassword.Text))
-            {
-                int role = gegevens.FirstOrDefault(a => a._email == txtUsername.Text && a._wachtwoord == txtPassword.Text)._rol;
-
-                Session["role"] = role;
-
-                RoleCheck();
-            }
-            else
-            {
-                Response.Redirect("Inloggen.aspx");
+                if (Convert.ToBoolean(Session["role"]))
+                {
+                    Response.Redirect("DashWerknemer.aspx");
+                }
+                else if (!Convert.ToBoolean(Session["role"]))
+                {
+                    Response.Redirect("DashKlant.aspx");
+                }
             }
         }
     }

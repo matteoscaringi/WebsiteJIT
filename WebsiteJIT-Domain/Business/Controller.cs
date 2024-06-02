@@ -12,7 +12,7 @@ namespace WebsiteJIT_Domain.Business
     public class Controller
     {
         //Conectionstring in business layer to avoid 3 seperate vaeriables in the persistence layer.
-        private string _connectionString = @"server=localhost;user id=root;persistsecurityinfo=True;database=project;password=test123";
+        private string _connectionString = @"server=localhost;user id=root;persistsecurityinfo=True;database=black_cocks);password=test123";
 
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +21,7 @@ namespace WebsiteJIT_Domain.Business
 
         public async Task<List<Aanmelden>> getAllGebruikers()
         {
-            PersistAanmelden persistAanmelden = new PersistAanmelden(); 
+            PersistAanmelden persistAanmelden = new PersistAanmelden();
 
             return await persistAanmelden.getAllGebruikers(_connectionString);
         }
@@ -42,11 +42,30 @@ namespace WebsiteJIT_Domain.Business
             await persistAanmelden.deleteGebruiker(id, _connectionString);
         }
 
-        public async Task<List<Aanmelden>> getLoginGegevens(string wachtwoord)
+        public async Task<string> getGebruikersnaam(string email)
         {
             PersistAanmelden persistAanmelden = new PersistAanmelden();
 
-            return await persistAanmelden.getLoginGegevens(wachtwoord, _connectionString);
+            return await persistAanmelden.getGebruikersnaam(email, _connectionString);
+        }
+
+        public async Task<string> getWachtwoord(string email)
+        {
+            PersistAanmelden persistAanmelden = new PersistAanmelden();
+
+            return await persistAanmelden.getWachtwoord(email, _connectionString);
+        }
+        public async Task<int> getRol(string email)
+        {
+            PersistAanmelden persistAanmelden = new PersistAanmelden();
+
+            return await persistAanmelden.getRol(email, _connectionString);
+        }
+        public async Task<int> getId(string email)
+        {
+            PersistAanmelden persistAanmelden = new PersistAanmelden();
+
+            return await persistAanmelden.getId(email, _connectionString);
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
