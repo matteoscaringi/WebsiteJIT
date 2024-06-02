@@ -11,7 +11,10 @@ namespace WebsiteJIT_MatteoScaringi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["ingelogd"] == null || !Convert.ToBoolean(Session["ingelogd"]))
+            {
+                Response.Redirect("Inloggen.aspx");
+            }
         }
     }
 }
