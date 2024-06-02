@@ -33,10 +33,12 @@ namespace WebsiteJIT_MatteoScaringi
                 if (Convert.ToInt32(Session["role"]) == 1)
                 {
                     Response.Redirect("DashWerknemer.aspx");
+                    Session["ingelogd"] = true;
                 }
                 else if (Convert.ToInt32(Session["role"]) ==0)
                 {
                     Response.Redirect("DashKlant.aspx");
+                    Session["ingelogd"] = true; 
                 }
             }
         }

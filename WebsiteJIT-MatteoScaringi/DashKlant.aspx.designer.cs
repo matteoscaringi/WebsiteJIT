@@ -15,39 +15,39 @@ namespace WebsiteJIT_MatteoScaringi
     {
 
         /// <summary>
-        /// boekinMakenBtn control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button boekinMakenBtn;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
-        /// boekingVerwijderenBtn control.
+        /// btnToevoegen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button boekingVerwijderenBtn;
+        protected global::System.Web.UI.WebControls.Button btnToevoegen;
 
         /// <summary>
-        /// boekingenBekijkenBtn control.
+        /// btnAlter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button boekingenBekijkenBtn;
+        protected global::System.Web.UI.WebControls.Button btnAlter;
 
         /// <summary>
-        /// gegevensBtn control.
+        /// btnDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button gegevensBtn;
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

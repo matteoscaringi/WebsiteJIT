@@ -15,48 +15,30 @@ namespace WebsiteJIT_MatteoScaringi
     {
 
         /// <summary>
-        /// boekingenBtn control.
+        /// btnInschrijving control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button boekingenBtn;
+        protected global::System.Web.UI.WebControls.Button btnInschrijving;
 
         /// <summary>
-        /// voorbereidingBtn control.
+        /// btnGebruikers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button voorbereidingBtn;
+        protected global::System.Web.UI.WebControls.Button btnGebruikers;
 
         /// <summary>
-        /// gebruikersBtn control.
+        /// btnVoorbereidingen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button gebruikersBtn;
-
-        /// <summary>
-        /// werknemersBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button werknemersBtn;
-
-        /// <summary>
-        /// gegevensBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button gegevensBtn;
+        protected global::System.Web.UI.WebControls.Button btnVoorbereidingen;
     }
 }

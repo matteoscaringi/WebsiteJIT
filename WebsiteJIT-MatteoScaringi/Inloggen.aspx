@@ -1,16 +1,13 @@
 ﻿<%@ Page Title="" Async="true" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Inloggen.aspx.cs" Inherits="WebsiteJIT_MatteoScaringi.WebForm1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-        /* Ensure the container takes the full height of the viewport */
         .height {
             height: 85vh;
         }
-        /* Optional: Adjust card height and vertical alignment if needed */
         .card {
             margin-top: auto;
             margin-bottom: auto;
         }
-        /* Set the button color */
         .btn-primary {
             background-color: #012f5c;
         }
