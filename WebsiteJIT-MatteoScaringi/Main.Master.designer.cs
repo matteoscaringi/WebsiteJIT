@@ -42,6 +42,15 @@ namespace WebsiteJIT_MatteoScaringi
         protected global::System.Web.UI.WebControls.LinkButton serviceButton;
 
         /// <summary>
+        /// dashButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton dashButton;
+
+        /// <summary>
         /// aanmeldButton control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace WebsiteJIT_MatteoScaringi
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton aanmeldButton;
+
+        /// <summary>
+        /// afmeldButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton afmeldButton;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

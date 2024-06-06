@@ -28,10 +28,12 @@
                                     <div class="form-group mb-3">
                                         <asp:Label ID="lblUsername" runat="server" AssociatedControlID="txtUsername">Gebruikersnaam</asp:Label>
                                         <asp:TextBox ID="txtUsername" runat="server" CssClass="form-control" placeholder="Gebruikersnaam"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valUsername" ControlToValidate="txtUsername" runat="server" ErrorMessage="E-mail adres invoeren!"></asp:RequiredFieldValidator>
                                     </div>
                                     <div class="form-group mb-3">
                                         <asp:Label ID="lblPassword" runat="server" AssociatedControlID="txtPassword">Wachtwoord</asp:Label>
                                         <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Wachtwoord"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="valWacthwoord" ControlToValidate="txtPassword" runat="server" ErrorMessage="Wachtwoord invullen!"></asp:RequiredFieldValidator>
                                     </div>
                                     <asp:Button ID="btnLogin" runat="server" Text="Inloggen" CssClass="btn btn-primary w-100" OnClick="btnLogin_Click" />
                                 </div>

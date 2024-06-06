@@ -11,16 +11,8 @@ namespace WebsiteJIT_MatteoScaringi.Pages
 {
     public partial class Home : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e) { 
-        //{
-        //    Controller _bc = new Controller();
-
-        //    var werknemers = _bc.getWerknemers();
-        //    if (werknemers is IEnumerable)
-        //    {
-        //        werknemersgrid.DataSource = werknemers;
-        //        werknemersgrid.DataBind();
-        //    }
+        protected void Page_Load(object sender, EventArgs e) 
+        {
         }
 
     }

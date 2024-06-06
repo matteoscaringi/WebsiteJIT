@@ -16,7 +16,17 @@ namespace WebsiteJIT_MatteoScaringi
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["ingelogd"] != null && Convert.ToBoolean(Session["ingelogd"]))
+            {
+                if (Convert.ToInt32(Session["role"]) == 1)
+                {
+                    Response.Redirect("DashWerknemer.aspx");
+                }
+                else if (Convert.ToInt32(Session["role"]) == 0)
+                {
+                    Response.Redirect("DashKlant.aspx");
+                }
+            }
         }
 
         protected async void btnLogin_Click(object sender, EventArgs e)
@@ -24,23 +34,21 @@ namespace WebsiteJIT_MatteoScaringi
             string gebruikersnaam = await _controller.getGebruikersnaam(txtUsername.Text);
             string wachtwoord = await _controller.getWachtwoord(txtUsername.Text);
 
-
             if (txtUsername.Text == gebruikersnaam && txtPassword.Text == wachtwoord)
             {
                 Session["role"] = await _controller.getRol(gebruikersnaam);
                 Session["id"] = await _controller.getId(gebruikersnaam);
 
-                if (Convert.ToInt32(Session["role"]) == 1)
+                if (Session["role"].ToString() == "werknemer")
                 {
                     Response.Redirect("DashWerknemer.aspx");
-                    Session["ingelogd"] = true;
                 }
-                else if (Convert.ToInt32(Session["role"]) ==0)
+                else if (Session["role"].ToString() == "klant")
                 {
                     Response.Redirect("DashKlant.aspx");
-                    Session["ingelogd"] = true; 
                 }
             }
+
         }
     }
 }

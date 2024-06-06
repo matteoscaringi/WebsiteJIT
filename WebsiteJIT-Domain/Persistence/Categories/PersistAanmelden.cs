@@ -162,9 +162,9 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         }
 
         //Get rol from database
-        public async Task<int> getRol(string email, string connectionString)
+        public async Task<string> getRol(string email, string connectionString)
         {
-            int output = 0;
+            string output = "";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -177,7 +177,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                     {
                         cmd.Parameters.AddWithValue("@email", email);
 
-                        output = Convert.ToInt32(cmd.ExecuteScalar());
+                        output = cmd.ExecuteScalar()?.ToString();
                     }
                 }
                 catch (Exception ex)

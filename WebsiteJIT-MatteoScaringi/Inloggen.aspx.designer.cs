@@ -33,6 +33,15 @@ namespace WebsiteJIT_MatteoScaringi
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
+        /// valUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valUsername;
+
+        /// <summary>
         /// lblPassword control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace WebsiteJIT_MatteoScaringi
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
+
+        /// <summary>
+        /// valWacthwoord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator valWacthwoord;
 
         /// <summary>
         /// btnLogin control.

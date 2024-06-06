@@ -37,7 +37,7 @@ namespace WebsiteJIT_Domain.Business
             await persistAanmelden.deleteGebruiker(id, _connectionString);
         }
 
-        public async Task<int> getRol(string email)
+        public async Task<string> getRol(string email)
         {
             return await persistAanmelden.getRol(email, _connectionString);
         }

@@ -15,30 +15,12 @@ namespace WebsiteJIT_MatteoScaringi
     {
 
         /// <summary>
-        /// btnInschrijving control.
+        /// InschrijvingGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInschrijving;
-
-        /// <summary>
-        /// btnGebruikers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGebruikers;
-
-        /// <summary>
-        /// btnVoorbereidingen control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnVoorbereidingen;
+        protected global::System.Web.UI.WebControls.GridView InschrijvingGrid;
     }
 }

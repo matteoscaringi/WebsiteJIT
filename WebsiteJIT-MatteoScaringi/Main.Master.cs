@@ -11,7 +11,6 @@ namespace WebsiteJIT_MatteoScaringi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void homeButton_Click(object sender, EventArgs e)
@@ -27,6 +26,16 @@ namespace WebsiteJIT_MatteoScaringi
         protected void aanmeldButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("Inloggen.aspx");
+        }
+
+        protected void dashButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DashRedirect.aspx");
+        }
+
+        protected void afmeldButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Afmelden.aspx");
         }
     }
 }
