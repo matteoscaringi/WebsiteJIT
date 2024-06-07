@@ -14,7 +14,7 @@ namespace WebsiteJIT_Domain.Business.Classes
         public String _adres { get; set; }
         public String _email { get; set; }
         public String _wachtwoord { get; set; }
-        public int _rol { get; set; }
+        public String _rol { get; set; }
 
         //Empty constructor
         public Aanmelden()
@@ -22,7 +22,7 @@ namespace WebsiteJIT_Domain.Business.Classes
         }
 
         //Constructor with ID
-        public Aanmelden(int id, String naam, String telnr, String adres, String email, String wachtwoord, int rol)
+        public Aanmelden(int id, String naam, String telnr, String adres, String email, String wachtwoord, String rol)
         {
             _id = id;
             _naam = naam;
@@ -34,7 +34,7 @@ namespace WebsiteJIT_Domain.Business.Classes
         }
 
         //Constructor for the use of logging in
-        public Aanmelden(String email, String wachtwoord, int rol)
+        public Aanmelden(String email, String wachtwoord, String rol)
         {
             _email = email;
             _wachtwoord = wachtwoord;
@@ -42,7 +42,7 @@ namespace WebsiteJIT_Domain.Business.Classes
         }
 
         //Constructor without ID
-        public Aanmelden(String naam, String telnr, String adres, String email, String wachtwoord, int rol)
+        public Aanmelden(String naam, String telnr, String adres, String email, String wachtwoord, String rol)
         {
             _naam = naam;
             _telnr = telnr;

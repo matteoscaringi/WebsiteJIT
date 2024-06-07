@@ -21,7 +21,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                     try
                     {
                         await conn.OpenAsync();
-                        string query = "SELECT idInschrijving, Datum, Voorbereiding_ID, Aanmeld_ID FROM inschrijving";
+                        string query = "SELECT * FROM voorbereiding";
 
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         using (DbDataReader reader = await cmd.ExecuteReaderAsync())

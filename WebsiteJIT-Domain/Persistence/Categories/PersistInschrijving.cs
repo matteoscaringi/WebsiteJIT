@@ -21,7 +21,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "SELECT idInschrijving, Datum, Voorbereiding_ID, Aanmeld_ID FROM inschrijving";
+                    string query = "SELECT * FROM inschrijving";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (DbDataReader reader = await cmd.ExecuteReaderAsync())
@@ -57,7 +57,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "INSERT INTO aanmelden (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
+                    string query = "INSERT INTO Inschrijving (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {

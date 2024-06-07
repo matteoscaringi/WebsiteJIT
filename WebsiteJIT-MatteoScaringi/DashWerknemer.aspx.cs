@@ -19,6 +19,8 @@ namespace WebsiteJIT_MatteoScaringi
             if (!IsPostBack)
             {
                 await LoadInschrijvingen();
+                await LoadVoorbereidingen();
+                await LoadAanmelden();
             }
         }
 
@@ -27,11 +29,38 @@ namespace WebsiteJIT_MatteoScaringi
             await LoadInschrijvingen();
         }
 
+        protected async void VoorbereidingGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadVoorbereidingen();
+        }
+
+        protected async void GebruikerGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadAanmelden();
+        }
+
         private async Task LoadInschrijvingen()
         {
-            List<Inschrijving> data = await _controller.getAllInschrijvingen();
-            InschrijvingGrid.DataSource = data;
+            //Load inschriijvingdata
+            List<Inschrijving> Inschrijvingdata = await _controller.getAllInschrijvingen();
+            InschrijvingGrid.DataSource = Inschrijvingdata;
             InschrijvingGrid.DataBind();
+        }
+
+        private async Task LoadVoorbereidingen()
+        {
+            //Load voorbereidingdata
+            List<Voorbereiding> voorbereidingData = await _controller.getAllVoorbereidingen();
+            VoorbereidingGrid.DataSource = voorbereidingData;
+            VoorbereidingGrid.DataBind();
+        }
+
+        private async Task LoadAanmelden()
+        {
+            //Load aanmelddata
+            List<Aanmelden> aanmeldData = await _controller.getAllGebruikers();
+            GebruikerGrid.DataSource = aanmeldData;
+            GebruikerGrid.DataBind();
         }
 
         protected async void InschrijvingGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)

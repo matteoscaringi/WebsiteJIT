@@ -22,5 +22,23 @@ namespace WebsiteJIT_MatteoScaringi
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView InschrijvingGrid;
+
+        /// <summary>
+        /// VoorbereidingGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView VoorbereidingGrid;
+
+        /// <summary>
+        /// GebruikerGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GebruikerGrid;
     }
 }

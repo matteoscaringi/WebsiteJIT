@@ -22,7 +22,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 try
                 {
                     await conn.OpenAsync();
-                    string query = "SELECT id, naam, telnr, adres, email, wachtwoord, rol FROM aanmelden";
+                    string query = "SELECT * FROM aanmelden";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     using (DbDataReader reader = await cmd.ExecuteReaderAsync())
@@ -37,7 +37,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                                 _adres = reader.GetString(3),
                                 _email = reader.GetString(4),
                                 _wachtwoord = reader.GetString(5),
-                                _rol = reader.GetInt32(6)
+                                _rol = reader.GetString(6)
                             };
 
                             gebruikers.Add(gebruiker);

@@ -25,7 +25,7 @@ namespace WebsiteJIT_Domain.Business
             return await persistAanmelden.getAllGebruikers(_connectionString);
         }
 
-        public async Task addGebruiker(string naam, string telnr, string adres, string email, string wachtwoord, int rol)
+        public async Task addGebruiker(string naam, string telnr, string adres, string email, string wachtwoord, string rol)
         {
             Aanmelden gebruiker = new Aanmelden(naam, telnr, adres, email, wachtwoord, rol);
 
