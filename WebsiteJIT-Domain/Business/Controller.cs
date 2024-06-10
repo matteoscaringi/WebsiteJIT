@@ -27,9 +27,9 @@ namespace WebsiteJIT_Domain.Business
 
         public async Task addGebruiker(string naam, string telnr, string adres, string email, string wachtwoord, string rol)
         {
-            Aanmelden gebruiker = new Aanmelden(naam, telnr, adres, email, wachtwoord, rol);
+            //Aanmelden gebruiker = new Aanmelden(naam, telnr, adres, email, wachtwoord, rol);
 
-            await persistAanmelden.addGebruiker(gebruiker, _connectionString);
+            persistAanmelden.addGebruiker(naam, telnr, adres, email, wachtwoord, rol, _connectionString);
         }
 
         public async Task deleteGebruiker(int id)

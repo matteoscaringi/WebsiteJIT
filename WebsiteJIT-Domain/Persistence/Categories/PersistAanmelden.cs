@@ -54,36 +54,35 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         }
 
         //Add a user to the database
-        public async Task addGebruiker(Aanmelden werknemer, String connectionString)
+        public void addGebruiker(string naam, string telnr, string adres, string email, string wachtwoord, string rol, string connectionString)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            try
             {
-                try
-                {
-                    await conn.OpenAsync();
-                    string query =
-                        "INSERT INTO aanmelden (naam, telnr, adres, email, wachtwoord, rol) VALUES (@naam, @telnr, @adres, @email, @wachtwoord, @rol)";
+                conn.Open();
+                string query =
+                    "INSERT INTO aanmelden (Naam, TelNr, Adres, Email, Wachtwoord, Rol) VALUES (@Naam, @TelNr, @Adres, @Email, @Wachtwoord, @Rol)";
 
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@naam", werknemer._naam);
-                        cmd.Parameters.AddWithValue("@telnr", werknemer._telnr);
-                        cmd.Parameters.AddWithValue("@adres", werknemer._adres);
-                        cmd.Parameters.AddWithValue("@email", werknemer._email);
-                        cmd.Parameters.AddWithValue("@wachtwoord", werknemer._wachtwoord);
-                        cmd.Parameters.AddWithValue("@rol", werknemer._rol);
-
-                        await cmd.ExecuteNonQueryAsync();
-                    }
-                }
-                catch (Exception ex)
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                    cmd.Parameters.AddWithValue("@Naam", naam);
+                    cmd.Parameters.AddWithValue("@TelNr", telnr);
+                    cmd.Parameters.AddWithValue("@Adres", adres);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                    cmd.Parameters.AddWithValue("@Rol", rol);
+
+                    cmd.ExecuteNonQuery();
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
             }
         }
 
-        //Delete a user from the database
+    //Delete a user from the database
         public async Task deleteGebruiker(int id, String connectionString)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))

@@ -77,11 +77,9 @@
     <Content Include="Web.config" />
     <Content Include="Inloggen.aspx" />
     <Content Include="Services.aspx" />
-    <Content Include="Toevoegen.aspx" />
-    <Content Include="Verwijderen.aspx" />
-    <Content Include="Aanpassen.aspx" />
     <Content Include="Afmelden.aspx" />
     <Content Include="DashRedirect.aspx" />
+    <Content Include="Registreren.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DashKlant.aspx.cs">
@@ -130,27 +128,6 @@
     <Compile Include="Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Toevoegen.aspx.cs">
-      <DependentUpon>Toevoegen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Toevoegen.aspx.designer.cs">
-      <DependentUpon>Toevoegen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Verwijderen.aspx.cs">
-      <DependentUpon>Verwijderen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Verwijderen.aspx.designer.cs">
-      <DependentUpon>Verwijderen.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Aanpassen.aspx.cs">
-      <DependentUpon>Aanpassen.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Aanpassen.aspx.designer.cs">
-      <DependentUpon>Aanpassen.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Afmelden.aspx.cs">
       <DependentUpon>Afmelden.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +141,13 @@
     </Compile>
     <Compile Include="DashRedirect.aspx.designer.cs">
       <DependentUpon>DashRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registreren.aspx.cs">
+      <DependentUpon>Registreren.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registreren.aspx.designer.cs">
+      <DependentUpon>Registreren.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
