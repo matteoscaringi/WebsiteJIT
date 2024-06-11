@@ -75,7 +75,7 @@ namespace WebsiteJIT_Domain.Business
 
             Inschrijving inschrijving = new Inschrijving(datum, voorbereidingid, aanmeldid);
 
-            await persistInschrijving.addInschrijving(inschrijving, _connectionString);
+            persistInschrijving.addInschrijving(inschrijving, _connectionString);
         }
 
         public async Task deleteInschrijving(int id)

@@ -50,13 +50,13 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         }
 
         //Add a new inschrijving to the database.
-        public async Task addInschrijving(Inschrijving inschrijving, String connectionString)
+        public void addInschrijving(Inschrijving inschrijving, String connectionString)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    await conn.OpenAsync();
+                    conn.Open();
                     string query = "INSERT INTO Inschrijving (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
@@ -65,7 +65,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                         cmd.Parameters.AddWithValue("@voorbereidingid", inschrijving._voorbereidingid);
                         cmd.Parameters.AddWithValue("@aanmeldid", inschrijving._aanmeldid);
 
-                        await cmd.ExecuteNonQueryAsync();
+                        cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)

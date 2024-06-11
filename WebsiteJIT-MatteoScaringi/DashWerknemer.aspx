@@ -39,8 +39,8 @@
                  <div class="card-body">
                      <div class="btn-group d-flex justify-content-between">
                          <asp:Button ID="btnDelete" CssClass="btn btn-primary w-100 mb-2" runat="server" Text="Voorbereiding Verwijderen" OnClick="btnDelete_Click" />
-                         <asp:Button ID="btnEditInschr" CssClass="btn btn-primary w-100 mb-2" runat="server" Text="Inschrijving bewerken" />
-                         <asp:Button ID="btnAddInschr" CssClass="btn btn-primary w-100 mb-2" runat="server" Text="inschrijving Toevoegen" />
+                         <asp:Button ID="btnEditInschr" CssClass="btn btn-primary w-100 mb-2" runat="server" Text="Inschrijving bewerken" OnClick="btnEditInschr_Click" />
+                         <asp:Button ID="btnAddInschr" CssClass="btn btn-primary w-100 mb-2" runat="server" Text="inschrijving Toevoegen" OnClick="btnAddInschr_Click" />
                      </div>
                      <div class="row mt-3">
                          <div class="col-md-6 mb-2">

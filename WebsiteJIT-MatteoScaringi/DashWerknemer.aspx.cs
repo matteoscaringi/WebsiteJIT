@@ -118,5 +118,17 @@ namespace WebsiteJIT_MatteoScaringi
 
             await LoadAanmelden();
         }
+
+        protected void btnAddInschr_Click(object sender, EventArgs e)
+        {
+            _controller.addInschrijving(calDatum.SelectedDate, Convert.ToInt32(boxVoorbereidNr.Text), Convert.ToInt32(boxAanmeldID.Text));
+
+            LoadInschrijvingen();
+        }
+
+        protected void btnEditInschr_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
