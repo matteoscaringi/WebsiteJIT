@@ -77,7 +77,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
             }
 
             //Delete a inschrijving from the database.
-            public void deleteVoorbereiding(int id, String connectionString)
+            public void deleteVoorbereiding(int id, string connectionString)
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
@@ -89,13 +89,12 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@id", id);
-
                             cmd.ExecuteNonQuery();
                         }
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+                        Console.WriteLine($"Error: {ex.Message}");
                     }
                 }
             }

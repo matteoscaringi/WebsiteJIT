@@ -29,10 +29,15 @@ namespace WebsiteJIT_MatteoScaringi
             await LoadInschrijvingen();
 
             int selectedIndex = InschrijvingGrid.SelectedIndex;
-
             int selectedId = Convert.ToInt32(InschrijvingGrid.DataKeys[selectedIndex].Value);
 
             Session["SelectedIDInschrijving"] = selectedId;
+
+            boxIdInschr.Text = InschrijvingGrid.SelectedRow.Cells[1].Text.ToString();
+            boxVoorbereidNr.Text = InschrijvingGrid.SelectedRow.Cells[3].Text.ToString();
+            boxAanmeldID.Text = InschrijvingGrid.SelectedRow.Cells[4].Text.ToString();
+            calDatum.SelectedDate = DateTime.Parse(InschrijvingGrid.SelectedRow.Cells[2].Text);
+            calDatum.VisibleDate = calDatum.SelectedDate;
         }
 
         protected async void VoorbereidingGrid_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,10 +45,14 @@ namespace WebsiteJIT_MatteoScaringi
             await LoadVoorbereidingen();
 
             int selectedIndex = VoorbereidingGrid.SelectedIndex;
-
             int selectedId = Convert.ToInt32(VoorbereidingGrid.DataKeys[selectedIndex].Value);
 
             Session["SelectedIDVoorbereiding"] = selectedId;
+
+            boxIDVoorber.Text = VoorbereidingGrid.SelectedRow.Cells[1].Text.ToString();
+            boxMedewerkerID.Text = VoorbereidingGrid.SelectedRow.Cells[2].Text.ToString();
+            boxInhoud.Text = VoorbereidingGrid.SelectedRow.Cells[3].Text.ToString();
+            boxDuur.Text = VoorbereidingGrid.SelectedRow.Cells[4].Text.ToString();
         }
 
         protected async void GebruikerGrid_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,10 +60,18 @@ namespace WebsiteJIT_MatteoScaringi
             await LoadAanmelden();
 
             int selectedIndex = GebruikerGrid.SelectedIndex;
-
             int selectedId = Convert.ToInt32(GebruikerGrid.DataKeys[selectedIndex].Value);
 
             Session["SelectedIDGebruiker"] = selectedId;
+
+            boxId.Text = GebruikerGrid.SelectedRow.Cells[1].Text.ToString();
+            boxNaam.Text = GebruikerGrid.SelectedRow.Cells[2].Text.ToString();
+            boxTelNr.Text = GebruikerGrid.SelectedRow.Cells[3].Text.ToString();
+            boxAdres.Text = GebruikerGrid.SelectedRow.Cells[4].Text.ToString();
+            boxEmail.Text = GebruikerGrid.SelectedRow.Cells[5].Text.ToString();
+            boxWachtwoord.Text = GebruikerGrid.SelectedRow.Cells[6].Text.ToString();
+            boxRol.Text = GebruikerGrid.SelectedRow.Cells[7].Text.ToString();
+
         }
 
         private async Task LoadInschrijvingen()
@@ -81,14 +98,6 @@ namespace WebsiteJIT_MatteoScaringi
             GebruikerGrid.DataBind();
         }
 
-        protected async void InschrijvingGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        {
-            int rowIndex = e.RowIndex;
-            int id = Convert.ToInt32(InschrijvingGrid.DataKeys[rowIndex].Values["_id"]);
-            await _controller.deleteInschrijving(id);
-            await LoadInschrijvingen();
-        }
-
         protected async void btnDelete_Click(object sender, EventArgs e)
         {
             await _controller.deleteInschrijving(Convert.ToInt32(Session["SelectedIDInschrijving"]));
@@ -100,7 +109,7 @@ namespace WebsiteJIT_MatteoScaringi
         {
             await _controller.deleteVoorbereiding(Convert.ToInt32(Session["SelectedIDVoorbereiding"]));
 
-            await LoadInschrijvingen();
+            await LoadVoorbereidingen();
         }
 
         protected async void btnDeleteGebruiker_Click(object sender, EventArgs e)
