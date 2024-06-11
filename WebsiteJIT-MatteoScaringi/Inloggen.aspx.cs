@@ -34,17 +34,19 @@ namespace WebsiteJIT_MatteoScaringi
             string gebruikersnaam = await _controller.getGebruikersnaam(txtUsername.Text);
             string wachtwoord = await _controller.getWachtwoord(txtUsername.Text);
 
-            if (txtUsername.Text == gebruikersnaam && txtPassword.Text == wachtwoord)
+            if (Page.IsValid && txtUsername.Text == gebruikersnaam && txtPassword.Text == wachtwoord)
             {
                 Session["role"] = await _controller.getRol(gebruikersnaam);
                 Session["id"] = await _controller.getId(gebruikersnaam);
 
                 if (Session["role"].ToString() == "werknemer")
                 {
+                    Session["ingelogd"] = true;
                     Response.Redirect("DashWerknemer.aspx");
                 }
                 else if (Session["role"].ToString() == "klant")
                 {
+                    Session["ingelogd"] = true;
                     Response.Redirect("DashKlant.aspx");
                 }
             }

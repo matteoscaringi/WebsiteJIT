@@ -37,5 +37,10 @@ namespace WebsiteJIT_MatteoScaringi
         {
             Response.Redirect("Afmelden.aspx");
         }
+
+        protected void registerButton_click(object sender, EventArgs e)
+        {
+            Response.Redirect("Registreren.aspx");
+        }
     }
 }

@@ -19,7 +19,12 @@ namespace WebsiteJIT_MatteoScaringi
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-            _controller.addGebruiker(txtNaam.Text, txtTelefoonNummer.Text, txtAdres.Text, txtEmail.Text, txtWachtwoordBevestigen.Text, "klant");
+            if (valBevestigWachtwoord.IsValid)
+            {
+                _controller.addGebruiker(txtNaam.Text, txtTelefoonNummer.Text, txtAdres.Text, txtEmail.Text, txtWachtwoordBevestigen.Text, "klant");
+            }
+
+            Response.Redirect("Inloggen.aspx");
         }
     }
 }

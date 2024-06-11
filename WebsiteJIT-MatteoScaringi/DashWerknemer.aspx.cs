@@ -27,16 +27,34 @@ namespace WebsiteJIT_MatteoScaringi
         protected async void InschrijvingGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadInschrijvingen();
+
+            int selectedIndex = InschrijvingGrid.SelectedIndex;
+
+            int selectedId = Convert.ToInt32(InschrijvingGrid.DataKeys[selectedIndex].Value);
+
+            Session["SelectedIDInschrijving"] = selectedId;
         }
 
         protected async void VoorbereidingGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadVoorbereidingen();
+
+            int selectedIndex = VoorbereidingGrid.SelectedIndex;
+
+            int selectedId = Convert.ToInt32(VoorbereidingGrid.DataKeys[selectedIndex].Value);
+
+            Session["SelectedIDVoorbereiding"] = selectedId;
         }
 
         protected async void GebruikerGrid_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadAanmelden();
+
+            int selectedIndex = GebruikerGrid.SelectedIndex;
+
+            int selectedId = Convert.ToInt32(GebruikerGrid.DataKeys[selectedIndex].Value);
+
+            Session["SelectedIDGebruiker"] = selectedId;
         }
 
         private async Task LoadInschrijvingen()
@@ -69,6 +87,27 @@ namespace WebsiteJIT_MatteoScaringi
             int id = Convert.ToInt32(InschrijvingGrid.DataKeys[rowIndex].Values["_id"]);
             await _controller.deleteInschrijving(id);
             await LoadInschrijvingen();
+        }
+
+        protected async void btnDelete_Click(object sender, EventArgs e)
+        {
+            await _controller.deleteInschrijving(Convert.ToInt32(Session["SelectedIDInschrijving"]));
+
+            await LoadInschrijvingen();
+        }
+
+        protected async void btnDeleteVoorber_Click(object sender, EventArgs e)
+        {
+            await _controller.deleteVoorbereiding(Convert.ToInt32(Session["SelectedIDVoorbereiding"]));
+
+            await LoadInschrijvingen();
+        }
+
+        protected async void btnDeleteGebruiker_Click(object sender, EventArgs e)
+        {
+            await _controller.deleteGebruiker(Convert.ToInt32(Session["SelectedIDGebruiker"]));
+
+            await LoadAanmelden();
         }
     }
 }

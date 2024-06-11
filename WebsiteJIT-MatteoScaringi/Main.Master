@@ -43,18 +43,27 @@
           <li>
               <asp:LinkButton ID="homeButton" runat="server" OnClick="homeButton_Click">Home</asp:LinkButton>
           </li>
+
           <li>
               <asp:LinkButton ID="serviceButton" runat="server" OnClick="serviceButton_Click">Diensten</asp:LinkButton>
           </li>
+
           <li>
-              <asp:LinkButton ID="dashButton" runat="server" OnClick="dashButton_Click">Dashboard</asp:LinkButton>
+              <asp:LinkButton ID="dashButton" runat="server" OnClick="dashButton_Click" Text="Dashboard"></asp:LinkButton>
           </li>
+
+            <li>
+                <asp:LinkButton class="btn-get-started" ID="registerButton" runat="server" OnClick="registerButton_click">Registreren</asp:LinkButton>
+            </li>
+
             <li>
                 <asp:LinkButton class="btn-get-started" ID="aanmeldButton" runat="server" OnClick="aanmeldButton_Click">Aanmelden</asp:LinkButton>
             </li>
+
             <li>
                 <asp:LinkButton ID="afmeldButton" runat="server" OnClick="afmeldButton_Click">Afmelden</asp:LinkButton>
             </li>
+
         </ul>
       </nav><!-- .navbar -->
 

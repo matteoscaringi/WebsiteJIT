@@ -83,20 +83,20 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         }
 
     //Delete a user from the database
-        public async Task deleteGebruiker(int id, String connectionString)
+        public void deleteGebruiker(int id, String connectionString)
         {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    await conn.OpenAsync();
-                    string query = "DELETE FROM aanmelden WHERE id = @id";
+                    conn.Open();
+                    string query = "DELETE FROM aanmelden WHERE idAanmelden = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@id", id);
 
-                        await cmd.ExecuteNonQueryAsync();
+                        cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
@@ -122,7 +122,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                     {
                         cmd.Parameters.AddWithValue("@email", email);
 
-                        output = cmd.ExecuteScalar()?.ToString();
+                        output = cmd.ExecuteScalar().ToString();
                     }
                 }
                 catch (Exception ex)
@@ -176,7 +176,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                     {
                         cmd.Parameters.AddWithValue("@email", email);
 
-                        output = cmd.ExecuteScalar()?.ToString();
+                        output = cmd.ExecuteScalar().ToString();
                     }
                 }
                 catch (Exception ex)

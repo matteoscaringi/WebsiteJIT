@@ -77,20 +77,20 @@ namespace WebsiteJIT_Domain.Persistence.Categories
             }
 
             //Delete a inschrijving from the database.
-            public async Task deleteVoorbereiding(int id, String connectionString)
+            public void deleteVoorbereiding(int id, String connectionString)
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     try
                     {
-                        await conn.OpenAsync();
-                        string query = "DELETE FROM voorbereiding WHERE id = @id";
+                        conn.Open();
+                        string query = "DELETE FROM voorbereiding WHERE idVoorbereiding = @id";
 
                         using (MySqlCommand cmd = new MySqlCommand(query, conn))
                         {
                             cmd.Parameters.AddWithValue("@id", id);
 
-                            await cmd.ExecuteNonQueryAsync();
+                            cmd.ExecuteNonQuery();
                         }
                     }
                     catch (Exception ex)

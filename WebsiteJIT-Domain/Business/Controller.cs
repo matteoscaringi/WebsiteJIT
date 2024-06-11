@@ -34,7 +34,7 @@ namespace WebsiteJIT_Domain.Business
 
         public async Task deleteGebruiker(int id)
         {
-            await persistAanmelden.deleteGebruiker(id, _connectionString);
+            persistAanmelden.deleteGebruiker(id, _connectionString);
         }
 
         public async Task<string> getRol(string email)
@@ -82,7 +82,7 @@ namespace WebsiteJIT_Domain.Business
         {
             PersistInschrijving persistInschrijving = new PersistInschrijving();
 
-            await persistInschrijving.deleteInschrijving(id, _connectionString);
+            persistInschrijving.deleteInschrijving(id, _connectionString);
         }
 
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,7 +109,7 @@ namespace WebsiteJIT_Domain.Business
         {
             PersistVoorbereiding persistVoorbereiding = new PersistVoorbereiding();
 
-            await persistVoorbereiding.deleteVoorbereiding(id, _connectionString);
+            persistVoorbereiding.deleteVoorbereiding(id, _connectionString);
         }
     }
 }
