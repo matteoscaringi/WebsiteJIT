@@ -85,6 +85,15 @@ namespace WebsiteJIT_Domain.Business
             persistInschrijving.deleteInschrijving(id, _connectionString);
         }
 
+        public async Task alterInschrijving(int id, DateTime datum, int voorbereidingid, int aanmeldid)
+        {
+            PersistInschrijving persistInschrijving = new PersistInschrijving();
+
+            Inschrijving inschrijving = new Inschrijving(id, datum, voorbereidingid, aanmeldid);
+
+            persistInschrijving.AlterInschrijving(inschrijving, _connectionString);
+        }
+
         ////////////////////////////////////////////////////////////////////////////////////////////////////////
         // All fucntions for the voorbereiding class.                                                         //
         ////////////////////////////////////////////////////////////////////////////////////////////////////////

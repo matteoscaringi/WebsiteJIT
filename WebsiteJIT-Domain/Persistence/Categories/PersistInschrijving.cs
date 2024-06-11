@@ -39,6 +39,8 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                             inschrijvingen.Add(inschrijving);
                         }
                     }
+
+                    await conn.CloseAsync();
                 }
                 catch (Exception ex)
                 {
@@ -52,18 +54,55 @@ namespace WebsiteJIT_Domain.Persistence.Categories
         //Add a new inschrijving to the database.
         public void addInschrijving(Inschrijving inschrijving, String connectionString)
         {
+            //using (MySqlConnection conn = new MySqlConnection(connectionString))
+            //{
+            //    try
+            //    {
+            //        conn.Open();
+            //        string query = "INSERT INTO Inschrijving (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
+
+            //        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            //        {
+            //            cmd.Parameters.AddWithValue("@datum", inschrijving._datum);
+            //            cmd.Parameters.AddWithValue("@voorbereidingid", inschrijving._voorbereidingid);
+            //            cmd.Parameters.AddWithValue("@aanmeldid", inschrijving._aanmeldid);
+
+            //            cmd.ExecuteNonQuery();
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine($"Er is een fout opgetreden: {ex.Message}");
+            //    }
+
+            MySqlConnection conn = new MySqlConnection(connectionString);
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO inschrijving (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)", conn);
+
+            cmd.Parameters.AddWithValue("@datum", inschrijving._datum);
+            cmd.Parameters.AddWithValue("@voorbereidingid", inschrijving._voorbereidingid);
+            cmd.Parameters.AddWithValue("@aanmeldid", inschrijving._aanmeldid);
+
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        //alter a inschrijving in the database.
+        public void AlterInschrijving(Inschrijving inschrijving, string connectionString)
+        {
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO Inschrijving (Datum, Voorbereiding_ID, Aanmeld_ID) VALUES (@datum, @voorbereidingid, @aanmeldid)";
+                    string query = "UPDATE inschrijving SET Datum = @datum, Voorbereiding_ID = @voorbereidingid, Aanmeld_ID = @aanmeldid WHERE idInschrijving = @id";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@datum", inschrijving._datum);
                         cmd.Parameters.AddWithValue("@voorbereidingid", inschrijving._voorbereidingid);
                         cmd.Parameters.AddWithValue("@aanmeldid", inschrijving._aanmeldid);
+                        cmd.Parameters.AddWithValue("@id", inschrijving._id);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -74,6 +113,7 @@ namespace WebsiteJIT_Domain.Persistence.Categories
                 }
             }
         }
+
 
         //Delete a inschrijving from the database.
         public void deleteInschrijving(int id, String connectionString)
@@ -91,6 +131,8 @@ namespace WebsiteJIT_Domain.Persistence.Categories
 
                         cmd.ExecuteNonQuery();
                     }
+
+                    conn.Close();
 
                     return ;
                 }

@@ -128,7 +128,7 @@ namespace WebsiteJIT_MatteoScaringi
 
         protected void btnEditInschr_Click(object sender, EventArgs e)
         {
-
+            _controller.alterInschrijving(Convert.ToInt32(Session["SelectedIDInschrijving"]), calDatum.SelectedDate, Convert.ToInt32(boxVoorbereidNr.Text), Convert.ToInt32(boxAanmeldID.Text));
         }
     }
 }

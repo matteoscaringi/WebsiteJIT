@@ -11,9 +11,12 @@ namespace WebsiteJIT_MatteoScaringi
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ingelogd"] == null || !Session["ingelogd"].Equals(true))
+            if (IsPostBack)
             {
-                Response.Redirect("Inloggen.aspx");
+                if (Session["ingelogd"] == null || !Session["ingelogd"].Equals(true))
+                {
+                    Response.Redirect("Inloggen.aspx");
+                }
             }
         }
     }
