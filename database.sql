@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `black_cocks` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `black_cocks`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: localhost    Database: black_cocks
@@ -31,7 +33,7 @@ CREATE TABLE `aanmelden` (
   `Wachtwoord` varchar(45) NOT NULL,
   `Rol` varchar(45) NOT NULL,
   PRIMARY KEY (`idAanmelden`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +42,7 @@ CREATE TABLE `aanmelden` (
 
 LOCK TABLES `aanmelden` WRITE;
 /*!40000 ALTER TABLE `aanmelden` DISABLE KEYS */;
-INSERT INTO `aanmelden` VALUES (1,'Mato Scar','588 15 48 01 ','Laan 1 8400 Oostende','me@matteoscaringi.be','1','werknemer'),(2,'Kees Van Voorthuizen','588 15 48 01 ','Laan 1 8400 Oostende','me@keesvv.nl','1','klant');
+INSERT INTO `aanmelden` VALUES (1,'Mato Scar','588 15 48 01 ','Laan 1 8400 Oostende','me@matteoscaringi.be','1234','werknemer'),(2,'Kees Van Voorthuizen','588 15 48 01 ','Laan 1 8400 Oostende','me@matteoscaringi.be','1234','klant');
 /*!40000 ALTER TABLE `aanmelden` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +61,7 @@ CREATE TABLE `inschrijving` (
   PRIMARY KEY (`idInschrijving`),
   KEY `fk_Inschrijving_aanmeldid_idx` (`Aanmeld_ID`),
   CONSTRAINT `fk_Inschrijving_aanmeldid` FOREIGN KEY (`Aanmeld_ID`) REFERENCES `aanmelden` (`idAanmelden`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +70,7 @@ CREATE TABLE `inschrijving` (
 
 LOCK TABLES `inschrijving` WRITE;
 /*!40000 ALTER TABLE `inschrijving` DISABLE KEYS */;
-INSERT INTO `inschrijving` VALUES (7,'2006-01-31 00:00:00',1,1),(8,'2007-01-06 00:00:00',2,1),(9,'2008-01-06 00:00:00',3,1),(10,'2009-01-06 00:00:00',4,1);
+INSERT INTO `inschrijving` VALUES (1,'2023-01-06 00:00:00',1,2);
 /*!40000 ALTER TABLE `inschrijving` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,7 +183,7 @@ CREATE TABLE `voorbereiding` (
 
 LOCK TABLES `voorbereiding` WRITE;
 /*!40000 ALTER TABLE `voorbereiding` DISABLE KEYS */;
-INSERT INTO `voorbereiding` VALUES (1,1,'Internet Veiligheid',2),(2,1,'blocky',1),(3,1,'Internet Veiligheid',2),(4,1,'Scratch',2);
+INSERT INTO `voorbereiding` VALUES (1,1,'Test',1),(2,1,'Test',1);
 /*!40000 ALTER TABLE `voorbereiding` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,4 +364,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-07 11:25:18
+-- Dump completed on 2024-06-12 10:56:45

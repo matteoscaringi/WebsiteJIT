@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container mt-5 mb-5">
         <h2>Contacteer Ons</h2>
-        <form>
+        <form action="mailto:me@matteoscaringi.be" method="post">
             <div class="form-group mb-4">
                 <label for="name">Naam</label>
                 <input type="text" class="form-control" id="name" placeholder="Naam invoeren">
