@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="DashKlant.aspx" />
     <Content Include="DashWerknemer.aspx" />
+    <Content Include="Error.html" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
